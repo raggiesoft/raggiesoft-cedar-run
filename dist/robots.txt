@@ -1,0 +1,5 @@
+# Cedar Run Wilderness Launchpad (https://cedarrun.raggiesoft.com)
+User-agent: *
+Allow: /
+
+Sitemap: https://cedarrun.raggiesoft.com/sitemap.xml

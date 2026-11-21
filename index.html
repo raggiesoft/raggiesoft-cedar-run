@@ -1,0 +1,78 @@
+<!doctype html>
+<!--
+  ============================================================================
+  index.html — Master HTML5 Document Shell for Cedar Run (cedarrun.raggiesoft.com)
+  ============================================================================
+  PLAIN-ENGLISH OVERVIEW (100-LEVEL WEB & ACCESSIBILITY GUIDE):
+    What is this file?
+      This is the root HTML skeleton that Vite uses during development (`npm run dev`)
+      and that `scripts/prerender.mjs` populates at build time (`npm run build`) for
+      every static route on `https://cedarrun.raggiesoft.com`.
+
+    How Zero-Flash Day & Night Forest Theming Works:
+      1. `<meta name="color-scheme" content="light dark">` tells the browser BEFORE
+         downloading CSS that this site natively supports both Daylight (`light`) and
+         Starlit Forest Night (`dark`) color schemes—automatically adapting OS scrollbars
+         and form controls without a blinding white flash!
+      2. The tiny synchronous `<script>` inside `<head>` checks if the visitor saved an
+         explicit `"day"` or `"night"` forest view in `localStorage` (`cedarrun_sky_mode`)
+         and stamps `data-forest-mode` onto `<html>` before the first pixel paints.
+      3. During `scripts/prerender.mjs`, SSR head and outlet markers are replaced
+         with route-specific `<title>`, OpenGraph meta cards, Schema.org JSON-LD,
+         SolidJS hydration script, and pre-rendered HTML!
+  ============================================================================
+-->
+<html lang="en" data-forest-mode="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <!-- Declare native support for both Daylight Forest and Starlit Night color schemes -->
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f3f6f1" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#06110c" media="(prefers-color-scheme: dark)" />
+
+    <!-- Synchronous Pre-Paint Forest Theme Restorer (Prevents Flash of Wrong Sky Mode) -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('cedarrun_sky_mode');
+          if (saved === 'light' || saved === 'dark') {
+            document.documentElement.setAttribute('data-forest-mode', saved);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <!--SSR_HEAD-->
+
+    <!-- Shared RaggieSoft Ecosystem Navigation Stylesheet -->
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css" />
+    <!--SSR_HYDRATION-->
+  </head>
+  <body>
+    <!-- Accessible Skip Link: First keyboard Tab stop jumps straight past navbars to main content -->
+    <a href="#main-content" class="cr-skip-link">Skip to main forest guide</a>
+
+    <!-- Global RaggieSoft Ecosystem Network Bar (Upgraded progressively by raggiesoft-network.js) -->
+    <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem Network">
+      <div class="rs-network-bar-inner">
+        <span class="rs-network-label">✦ RaggieSoft Network:</span>
+        <ul class="rs-network-links">
+          <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+          <li><a href="https://books.raggiesoft.com/cedar-run">📚 Read Cedar Run</a></li>
+          <li><a href="https://cedarrun.raggiesoft.com" aria-current="page" class="is-active">🌲 Cedar Run World</a></li>
+          <li><a href="https://music.raggiesoft.com">🎧 The Listening Room</a></li>
+          <li><a href="https://lore.raggiesoft.com">🧭 Lore</a></li>
+          <li><a href="https://backstage.raggiesoft.com">🎬 Backstage</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- SolidJS Pre-Rendered Application Root -->
+    <div id="app"><!--SSR_OUTLET--></div>
+
+    <!-- Shared RaggieSoft Ecosystem Progressive Enhancement Script -->
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js" defer></script>
+    <script type="module" src="/src/entry-client.tsx"></script>
+  </body>
+</html>

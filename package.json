@@ -1,0 +1,23 @@
+{
+  "name": "raggiesoft-cedar-run",
+  "version": "1.0.0",
+  "description": "Cedar Run (cedarrun.raggiesoft.com) — Interactive Pacific Northwest Wilderness Worldbuilding Launchpad, Bridger Triplets Field Guide, 3-Way Story Crossroads Portal, Shelter Progression Explorer, and 1975 Mountain-Folk Songbook. Built with SolidJS + TypeScript + Vite Static SSG.",
+  "license": "MIT",
+  "author": "Michael P. Ragsdale (https://raggiesoft.com)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir .ssr-temp && node scripts/prerender.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "solid-js": "^1.9.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "vite": "^6.2.0",
+    "vite-plugin-solid": "^2.11.2"
+  }
+}

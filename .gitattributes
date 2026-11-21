@@ -1,0 +1,5 @@
+# Normalize text files to LF across macOS, Linux, and Windows Git Bash
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.ico binary

@@ -1,0 +1,118 @@
+<!doctype html>
+<!--
+  ============================================================================
+  index.html — Master HTML5 Document Shell for Cedar Run (cedarrun.raggiesoft.com)
+  ============================================================================
+  PLAIN-ENGLISH OVERVIEW (100-LEVEL WEB & ACCESSIBILITY GUIDE):
+    What is this file?
+      This is the root HTML skeleton that Vite uses during development (`npm run dev`)
+      and that `scripts/prerender.mjs` populates at build time (`npm run build`) for
+      every static route on `https://cedarrun.raggiesoft.com`.
+
+    How Zero-Flash Day & Night Forest Theming Works:
+      1. `<meta name="color-scheme" content="light dark">` tells the browser BEFORE
+         downloading CSS that this site natively supports both Daylight (`light`) and
+         Starlit Forest Night (`dark`) color schemes—automatically adapting OS scrollbars
+         and form controls without a blinding white flash!
+      2. The tiny synchronous `<script>` inside `<head>` checks if the visitor saved an
+         explicit `"day"` or `"night"` forest view in `localStorage` (`cedarrun_sky_mode`)
+         and stamps `data-forest-mode` onto `<html>` before the first pixel paints.
+      3. During `scripts/prerender.mjs`, SSR head and outlet markers are replaced
+         with route-specific `<title>`, OpenGraph meta cards, Schema.org JSON-LD,
+         SolidJS hydration script, and pre-rendered HTML!
+  ============================================================================
+-->
+<html lang="en" data-forest-mode="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <!-- Declare native support for both Daylight Forest and Starlit Night color schemes -->
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f3f6f1" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#06110c" media="(prefers-color-scheme: dark)" />
+
+    <!-- Synchronous Pre-Paint Forest Theme Restorer (Prevents Flash of Wrong Sky Mode) -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('cedarrun_sky_mode');
+          if (saved === 'light' || saved === 'dark') {
+            document.documentElement.setAttribute('data-forest-mode', saved);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <title>Songs from Cedar Run | Three-Part Mountain Folk</title>
+    <meta name="description" content="Read lyrics and story notes for the Bridger triplets’ warm 1970s-inspired acoustic guitar, parlor piano, and three-part sibling harmony songbook." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://cedarrun.raggiesoft.com/songbook" />
+    <link rel="icon" type="image/svg+xml" href="https://assets.raggiesoft.com/raggiesoft-books/images/logos/story-crossroads-seal-3way.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Cedar Run — RaggieSoft Story Crossroads" />
+    <meta property="og:title" content="Songs from Cedar Run | Three-Part Mountain Folk" />
+    <meta property="og:description" content="Read lyrics and story notes for the Bridger triplets’ warm 1970s-inspired acoustic guitar, parlor piano, and three-part sibling harmony songbook." />
+    <meta property="og:url" content="https://cedarrun.raggiesoft.com/songbook" />
+    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/cedar-run.jpg" />
+    <meta property="og:image:alt" content="Cedar Run — Luke, Tessa, and Sadie Bridger in Colville National Forest" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Songs from Cedar Run | Three-Part Mountain Folk" />
+    <meta name="twitter:description" content="Read lyrics and story notes for the Bridger triplets’ warm 1970s-inspired acoustic guitar, parlor piano, and three-part sibling harmony songbook." />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/cedar-run.jpg" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://cedarrun.raggiesoft.com/#website","url":"https://cedarrun.raggiesoft.com/","name":"Cedar Run — RaggieSoft Story Crossroads World","description":"Official Pacific Northwest wilderness worldbuilding guide, shelter progression explorer, and 1975 acoustic songbook for Cedar Run.","inLanguage":"en-US","creator":{"@type":"Person","name":"Michael P. Ragsdale","url":"https://michaelpragsdale.com"},"publisher":{"@type":"Organization","name":"RaggieSoft","url":"https://raggiesoft.com"}},{"@type":"Book","@id":"https://books.raggiesoft.com/cedar-run#book","name":"Cedar Run","url":"https://books.raggiesoft.com/cedar-run","author":{"@type":"Person","name":"Michael P. Ragsdale","url":"https://michaelpragsdale.com"},"genre":["Interactive Fiction","Wilderness Survival","Contemporary Literary Fiction"],"inLanguage":"en-US","license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
+
+    <!-- Shared RaggieSoft Ecosystem Navigation Stylesheet -->
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css" />
+    <script>window._$HY||(e=>{let t=e=>e&&e.hasAttribute&&(e.hasAttribute("data-hk")?e:t(e.host&&e.host.nodeType?e.host:e.parentNode));["click", "input"].forEach((o=>document.addEventListener(o,(o=>{if(!e.events)return;let s=t(o.composedPath&&o.composedPath()[0]||o.target);s&&!e.completed.has(s)&&e.events.push([s,o])}))))})(_$HY={events:[],completed:new WeakSet,r:{},fe(){}});</script><!--xs-->
+    <script type="module" crossorigin src="/assets/index-D-O_TbwN.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CiKAM6qa.css">
+  </head>
+  <body>
+    <!-- Accessible Skip Link: First keyboard Tab stop jumps straight past navbars to main content -->
+    <a href="#main-content" class="cr-skip-link">Skip to main forest guide</a>
+
+    <!-- Global RaggieSoft Ecosystem Network Bar (Upgraded progressively by raggiesoft-network.js) -->
+    <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem Network">
+      <div class="rs-network-bar-inner">
+        <span class="rs-network-label">✦ RaggieSoft Network:</span>
+        <ul class="rs-network-links">
+          <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+          <li><a href="https://books.raggiesoft.com/cedar-run">📚 Read Cedar Run</a></li>
+          <li><a href="https://cedarrun.raggiesoft.com" aria-current="page" class="is-active">🌲 Cedar Run World</a></li>
+          <li><a href="https://music.raggiesoft.com">🎧 The Listening Room</a></li>
+          <li><a href="https://lore.raggiesoft.com">🧭 Lore</a></li>
+          <li><a href="https://backstage.raggiesoft.com">🎬 Backstage</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- SolidJS Pre-Rendered Application Root -->
+    <div id="app"><div data-hk="00"><header class="cr-site-header"><div class="cr-container cr-header-inner"><a href="/" class="cr-brand" aria-label="Cedar Run Wilderness Launchpad — Home"><img src="https://assets.raggiesoft.com/raggiesoft-books/images/logos/story-crossroads-seal-3way.svg" alt="RaggieSoft Story Crossroads three-way signpost emblem" width="40" height="40" class="cr-brand-emblem"><span><span class="cr-brand-title">Cedar Run</span><span class="cr-brand-sub">Colville Wilderness • Story Crossroads</span></span></a><nav aria-label="Cedar Run sections"><ul class="cr-nav-list"><li data-hk="010"><a href="/" class="cr-nav-link">Forest Camp</a></li><li data-hk="011"><a href="/triplets" class="cr-nav-link">The Triplets</a></li><li data-hk="012"><a href="/shelters" class="cr-nav-link">Shelter &amp; Forage</a></li><li data-hk="013"><a href="/crossroads" class="cr-nav-link">Story Crossroads</a></li><li data-hk="014"><a href="/sky-and-seasons" class="cr-nav-link">Rain &amp; Night Sky</a></li><li data-hk="015"><a href="/songbook" class="cr-nav-link" aria-current="page">1975 Songbook</a></li></ul></nav><div class="cr-sky-switcher" role="group" aria-label="Forest sky lighting mode"><button type="button" class="cr-sky-btn" aria-pressed="true">Auto</button><button type="button" class="cr-sky-btn" aria-pressed="false">☀️ Daylight</button><button type="button" class="cr-sky-btn" aria-pressed="false">🌌 Night Sky</button></div></div></header><main id="main-content" tabindex="-1"><!--!$--><!--!$--><!--!$--><!--!$--><section data-hk="0250" class="cr-section"><div class="cr-container"><span class="cr-kicker">Engine Room Records • Warm 1975 Folk-Rock Spirit</span><h1>Songs from Cedar Run</h1><p class="cr-lead">Every evening once the hearth is banked, Sadie lifts Grandpa Owen Sawyer’s 1974 Clearwater steel-string guitar and all three triplets lock into warm, pastoral three-part harmonies in the spirit of mid-1970s acoustic storytellers.</p><!--$--><div data-hk="0251"><div class="cr-tablist" role="tablist" aria-label="Cedar Run 1975 acoustic songbook"><button data-hk="02520" type="button" role="tab" id="song-tab-0" class="cr-tab" aria-selected="true" tabindex="0"><!--$-->01<!--/-->. <!--$-->Cedar Run<!--/--></button><button data-hk="02521" type="button" role="tab" id="song-tab-1" class="cr-tab" aria-selected="false" tabindex="-1"><!--$-->02<!--/-->. <!--$-->Rain on Split Cedar<!--/--></button><button data-hk="02522" type="button" role="tab" id="song-tab-2" class="cr-tab" aria-selected="false" tabindex="-1"><!--$-->03<!--/-->. <!--$-->Straight Grain and Silver Water<!--/--></button><button data-hk="02523" type="button" role="tab" id="song-tab-3" class="cr-tab" aria-selected="false" tabindex="-1"><!--$-->04<!--/-->. <!--$-->Huckleberry Sun (Three Walls of Stone)<!--/--></button><button data-hk="02524" type="button" role="tab" id="song-tab-4" class="cr-tab" aria-selected="false" tabindex="-1"><!--$-->05<!--/-->. <!--$-->Sixty Years Under the Moss<!--/--></button><button data-hk="02525" type="button" role="tab" id="song-tab-5" class="cr-tab" aria-selected="false" tabindex="-1"><!--$-->06<!--/-->. <!--$-->River of Stars Above the Pines<!--/--></button></div><!--$--><div data-hk="02530" role="tabpanel" id="song-panel-0" aria-labelledby="song-tab-0"><div class="cr-tabpanel-inner cr-grid-2"><div><span class="cr-kicker">Episode 1, Chapter 1 • Snowmelt and Red Cedar</span><h3>Track <!--$-->01<!--/-->: <!--$-->Cedar Run<!--/--></h3><p><strong>Musical Feel:</strong> <!--$-->1975 Pastoral Mountain Folk-Rock Ballad • Warm Analog Tape<!--/--></p><p><strong>Arrangement:</strong> <!--$-->Fingerpicked 6-string &amp; shimmering 12-string acoustic guitars, rolling upright parlor piano, fretless bass, brushed snare, three-part sibling harmonies<!--/--></p><p>Written after their very first silent night beyond the barbed-wire fence and their morning dip in the snowmelt granite pool—celebrating the nameless stream where nobody can split the three of them apart.</p><div class="cr-btn-row"><a href="https://books.raggiesoft.com/cedar-run/e001/c001/p002" class="cr-btn cr-btn-primary">Read Matching Chapter &rarr;</a><a href="https://music.raggiesoft.com" class="cr-btn">Visit The Listening Room &rarr;</a></div></div><div><h4>Campfire Lyric Notebook</h4><blockquote class="cr-lyric-sheet" style="margin:0">Eighteen summers screaming through the hallway and the floor
+Saying normal kids scatter when they reach an open door
+So we shouldered canvas rucksacks and Grandpa's old guitar
+Stepped across the back-fence wire beneath the evening star
+
+Carry me up to Cedar Run
+Where the cold spring meets the morning sun
+Three voices rising through the tall green pine
+No fence on the ridge, no dividing line</blockquote></div></div></div><div data-hk="02531" role="tabpanel" id="song-panel-1" aria-labelledby="song-tab-1" hidden><div class="cr-tabpanel-inner cr-grid-2"><div><span class="cr-kicker">Sheltered Valley Rainstorms • All Three Footholds</span><h3>Track <!--$-->02<!--/-->: <!--$-->Rain on Split Cedar<!--/--></h3><p><strong>Musical Feel:</strong> <!--$-->Mellow 1975 Acoustic Fingerpicking &amp; Rain-Hush Harmony<!--/--></p><p><strong>Arrangement:</strong> <!--$-->Open-G Sitka spruce dreadnought guitar, soft wooden porch percussion, close twin-sister alto/soprano &amp; brother baritone vocal blend<!--/--></p><p>Captures why the triplets love afternoon rainstorms in Colville National Forest: cool rainwater splashing on upturned faces and steady white noise drumming overhead while they curl up dry together.</p><div class="cr-btn-row"><a href="https://books.raggiesoft.com/cedar-run/e001/c001/p001" class="cr-btn cr-btn-primary">Read Matching Chapter &rarr;</a><a href="https://music.raggiesoft.com" class="cr-btn">Visit The Listening Room &rarr;</a></div></div><div><h4>Campfire Lyric Notebook</h4><blockquote class="cr-lyric-sheet" style="margin:0">Let the gray cloud settle down the Kettle River draw
+Wash the sawdust off our knuckles, turn the pine duff soft and raw
+Every drop upon the roof-shakes is a wall against the past
+Just the white noise of the rainwater and peace that's built to last</blockquote></div></div></div><div data-hk="02532" role="tabpanel" id="song-panel-2" aria-labelledby="song-tab-2" hidden><div class="cr-tabpanel-inner cr-grid-2"><div><span class="cr-kicker">Route 1 • The Creek-Bend Cedar Bench</span><h3>Track <!--$-->03<!--/-->: <!--$-->Straight Grain and Silver Water<!--/--></h3><p><strong>Musical Feel:</strong> <!--$-->Sunny Mid-Tempo 1970s Acoustic Storyteller Groove<!--/--></p><p><strong>Arrangement:</strong> <!--$-->Twin steel-string guitars, warm upright bass, bright acoustic lead fills<!--/--></p><p>Scored to the crisp crack of Grandpa Owen’s shingle froe splitting straight red heartwood and Tessa lifting silver-gold cutthroat trout from her woven willow trap.</p><div class="cr-btn-row"><a href="https://books.raggiesoft.com/cedar-run/paths/creek-bend-cedar-frame/e001/c003/p001" class="cr-btn cr-btn-primary">Read Matching Chapter &rarr;</a><a href="https://music.raggiesoft.com" class="cr-btn">Visit The Listening Room &rarr;</a></div></div><div><h4>Campfire Lyric Notebook</h4><blockquote class="cr-lyric-sheet" style="margin:0">Eighty feet of fallen heartwood seasoned ten years off the ground
+Every plank splits straight as music when the wooden maul comes down
+Willow basket in the riffle where the spotted cutthroat glide
+Supper sizzling on green alder with my sisters at my side</blockquote></div></div></div><div data-hk="02533" role="tabpanel" id="song-panel-3" aria-labelledby="song-tab-3" hidden><div class="cr-tabpanel-inner cr-grid-2"><div><span class="cr-kicker">Route 2 • The South-Facing Granite Overhang</span><h3>Track <!--$-->04<!--/-->: <!--$-->Huckleberry Sun (Three Walls of Stone)<!--/--></h3><p><strong>Musical Feel:</strong> <!--$-->Warm 1975 Canyon-Meadow Acoustic &amp; Parlor Piano Ballad<!--/--></p><p><strong>Arrangement:</strong> <!--$-->Acoustic guitar arpeggios, warm upright piano chords, three-part chorus swell<!--/--></p><p>Inspired by stained purple fingers in five acres of sunny mountain huckleberries and feeling the ancient granite cliff radiate stored daytime sunshine long after midnight.</p><div class="cr-btn-row"><a href="https://books.raggiesoft.com/cedar-run/paths/granite-overhang-hearth/e001/c003/p001" class="cr-btn cr-btn-primary">Read Matching Chapter &rarr;</a><a href="https://music.raggiesoft.com" class="cr-btn">Visit The Listening Room &rarr;</a></div></div><div><h4>Campfire Lyric Notebook</h4><blockquote class="cr-lyric-sheet" style="margin:0">Ten thousand tons of granite soaking June light all day long
+Breathing warmth back through the darkness like an ember in a song
+Purple berries on the flat rock, wild onion in the pot
+We got three walls built by glaciers and we love the roof we've got</blockquote></div></div></div><div data-hk="02534" role="tabpanel" id="song-panel-4" aria-labelledby="song-tab-4" hidden><div class="cr-tabpanel-inner cr-grid-2"><div><span class="cr-kicker">Route 3 • The Forgotten Stone Springhouse</span><h3>Track <!--$-->05<!--/-->: <!--$-->Sixty Years Under the Moss<!--/--></h3><p><strong>Musical Feel:</strong> <!--$-->Reflective 1975 High-Ridge Acoustic &amp; Harmonica Waltz<!--/--></p><p><strong>Arrangement:</strong> <!--$-->3/4 fingerpicked dreadnought guitar, gentle harmonica, soaring sibling harmonies<!--/--></p><p>Sung beneath freshly peeled tamarack rafters atop the mossy 1930s fieldstone springhouse while forty-two-degree mountain water purls through the indoor stone trough.</p><div class="cr-btn-row"><a href="https://books.raggiesoft.com/cedar-run/paths/old-lookout-ridge/e001/c003/p001" class="cr-btn cr-btn-primary">Read Matching Chapter &rarr;</a><a href="https://music.raggiesoft.com" class="cr-btn">Visit The Listening Room &rarr;</a></div></div><div><h4>Campfire Lyric Notebook</h4><blockquote class="cr-lyric-sheet" style="margin:0">Whoever laid these gable stones back in nineteen-thirty-three
+Left a doorway facing southward and a cold spring running free
+Sixty summers under feather-moss waiting on the hill
+For three kids to raise the ridgepole while the evening turns to still</blockquote></div></div></div><div data-hk="02535" role="tabpanel" id="song-panel-5" aria-labelledby="song-tab-5" hidden><div class="cr-tabpanel-inner cr-grid-2"><div><span class="cr-kicker">Clear Midnight After Rain • Looking Up Together</span><h3>Track <!--$-->06<!--/-->: <!--$-->River of Stars Above the Pines<!--/--></h3><p><strong>Musical Feel:</strong> <!--$-->Sweeping 1975 Nocturne • Cascading Piano &amp; 12-String Shimmer<!--/--></p><p><strong>Arrangement:</strong> <!--$-->Cascading acoustic piano, 12-string guitar harmonics, sustained vocal harmonies echoing into quiet forest night<!--/--></p><p>After a late rain washes every speck of pollen from the Kettle Range air, Luke, Tessa, and Sadie sit wrapped in one wool blanket watching the Milky Way reflect in Cedar Run.</p><div class="cr-btn-row"><a href="https://books.raggiesoft.com/cedar-run" class="cr-btn cr-btn-primary">Read Matching Chapter &rarr;</a><a href="https://music.raggiesoft.com" class="cr-btn">Visit The Listening Room &rarr;</a></div></div><div><h4>Campfire Lyric Notebook</h4><blockquote class="cr-lyric-sheet" style="margin:0">Eighty miles from any streetlamp, after rain has washed the air
+There's an ocean made of starlight hanging silver up the stair
+Every world we used to dream of on a glowing living-room screen
+Shining real above the cedars in the deepest night we've seen</blockquote></div></div></div><!--/--></div><!--/--></div></section></main><footer class="cr-footer"><div class="cr-container"><div class="cr-grid-2"><div><h2 style="font-size:1.15rem">Cedar Run • A RaggieSoft Story Crossroads World</h2><p>Written, produced, and published by <strong>Michael P. Ragsdale</strong> across <strong>RaggieSoft Story Crossroads</strong>, <strong>Ocean View Archives</strong>, and <strong>Engine Room Records</strong>.</p><ul class="cr-pill-list"><li><a href="https://books.raggiesoft.com/cedar-run" class="cr-pill">📚 Read on Book Reader</a></li><li><a href="https://music.raggiesoft.com" class="cr-pill">🎧 Stream in The Listening Room</a></li><li><a href="https://lore.raggiesoft.com" class="cr-pill">🧭 Universal Lore Archive</a></li><li><a href="https://backstage.raggiesoft.com" class="cr-pill">🎬 RaggieSoft Backstage</a></li></ul></div><div><p><strong>Open Licensing:</strong> Application source code is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>. Narrative chapters, characters, artwork, and lyrics are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> (with commercial licensing inquiries via <a href="https://raggiesoft.com/raggiesoft-media/licensing/commercial">RaggieSoft Media</a>).</p></div></div><div class="cr-disclaimer-box" role="note" aria-label="Fictitious entities disclaimer"><strong>Fictitious Persons &amp; Entities Disclaimer:</strong> Cedar Run is a work of creative fiction. All narrative characters (including Luke, Tessa, and Sadie Bridger, Owen Sawyer, and Richard and Evelyn Bridger), bands, biographies, universities (including CPI, VDU, The Forgers, and The Crucible), corporations (OmniCorp, Apex Records, Prairie Coachworks, Sainte-Claire, Clearwater), transit agencies (BRT, CVTA), in-universe legal filings, and events across the RaggieSoft network are fictitious. Any resemblance to actual persons, living or dead, businesses, or events is purely coincidental. Real-world public geographic names such as Colville National Forest and the Kettle River Range are used solely as geographic settings for fictional locations such as Cedar Run Creek.</div></div></footer></div></div>
+
+    <!-- Shared RaggieSoft Ecosystem Progressive Enhancement Script -->
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js" defer></script>
+  </body>
+</html>
