@@ -359,50 +359,73 @@ export function App(props: AppProps) {
             </span>
           </a>
 
-          <nav aria-label="Cedar Run sections">
-            <ul class="cr-nav-list">
-              <For each={SITE_ROUTES}>
-                {(route) => (
-                  <li>
-                    <a
-                      href={route.path}
-                      class="cr-nav-link"
-                      aria-current={currentPath() === route.path ? 'page' : undefined}
-                    >
-                      {route.navLabel}
-                    </a>
-                  </li>
-                )}
-              </For>
-            </ul>
-          </nav>
+          <button
+            type="button"
+            class="rs-mobile-header-toggle"
+            data-rs-mobile-toggle
+            data-open-label="Open menu"
+            data-close-label="Close menu"
+            aria-expanded="false"
+            aria-controls="header-navigation-panel"
+            aria-label="Open menu"
+          >
+            <svg class="rs-icon-bars" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true" focusable="false">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+            <svg class="rs-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true" focusable="false">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
 
-          {/* Accessible 3-Button Forest Sky Mode Switcher */}
-          <div class="cr-sky-switcher" role="group" aria-label="Forest sky lighting mode">
-            <button
-              type="button"
-              class="cr-sky-btn"
-              aria-pressed={skyMode() === 'auto' ? 'true' : 'false'}
-              onClick={() => applySkyMode('auto')}
-            >
-              Auto
-            </button>
-            <button
-              type="button"
-              class="cr-sky-btn"
-              aria-pressed={skyMode() === 'light' ? 'true' : 'false'}
-              onClick={() => applySkyMode('light')}
-            >
-              ☀️ Daylight
-            </button>
-            <button
-              type="button"
-              class="cr-sky-btn"
-              aria-pressed={skyMode() === 'dark' ? 'true' : 'false'}
-              onClick={() => applySkyMode('dark')}
-            >
-              🌌 Night Sky
-            </button>
+          <div id="header-navigation-panel" class="cr-nav-cluster" data-rs-collapsible="true">
+            <nav aria-label="Cedar Run sections">
+              <ul class="cr-nav-list">
+                <For each={SITE_ROUTES}>
+                  {(route) => (
+                    <li>
+                      <a
+                        href={route.path}
+                        class="cr-nav-link"
+                        aria-current={currentPath() === route.path ? 'page' : undefined}
+                      >
+                        {route.navLabel}
+                      </a>
+                    </li>
+                  )}
+                </For>
+              </ul>
+            </nav>
+
+            {/* Accessible 3-Button Forest Sky Mode Switcher */}
+            <div class="cr-sky-switcher" role="group" aria-label="Forest sky lighting mode">
+              <button
+                type="button"
+                class="cr-sky-btn"
+                aria-pressed={skyMode() === 'auto' ? 'true' : 'false'}
+                onClick={() => applySkyMode('auto')}
+              >
+                Auto
+              </button>
+              <button
+                type="button"
+                class="cr-sky-btn"
+                aria-pressed={skyMode() === 'light' ? 'true' : 'false'}
+                onClick={() => applySkyMode('light')}
+              >
+                ☀️ Daylight
+              </button>
+              <button
+                type="button"
+                class="cr-sky-btn"
+                aria-pressed={skyMode() === 'dark' ? 'true' : 'false'}
+                onClick={() => applySkyMode('dark')}
+              >
+                🌌 Night Sky
+              </button>
+            </div>
           </div>
         </div>
       </header>
