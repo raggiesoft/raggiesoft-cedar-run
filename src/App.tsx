@@ -877,6 +877,14 @@ export function App(props: AppProps) {
                 </a>
                 ).
               </p>
+              <p style={{ 'margin-top': '0.6rem', 'font-size': '0.88rem' }}>
+                <strong>RaggieSoft Governance:</strong>{' '}
+                <a href="https://raggiesoft.com/about/privacy">Privacy Policy</a> &bull;{' '}
+                <a href="https://raggiesoft.com/about/terms">Terms of Service</a> &bull;{' '}
+                <a href="https://raggiesoft.com/about/ai-disclaimer">
+                  AI &amp; Creative Process | RaggieSoft Governance
+                </a>
+              </p>
             </div>
           </div>
 
